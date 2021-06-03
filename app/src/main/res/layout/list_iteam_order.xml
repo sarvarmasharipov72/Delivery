@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:id="@+id/imgOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@tools:sample/avatars"
+        />
+    <TextView
+        android:id="@+id/foodOrderName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Shaverman"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imgOrder"
+        />
+    <TextView
+        android:id="@+id/foodOrderPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/foodOrderName"
+        app:layout_constraintStart_toEndOf="@id/imgOrder"
+        android:textSize="18sp"
+        android:textColor="@color/priceColor"
+        tools:text="25000 UZS"
+        />
+    <TextView
+        android:id="@+id/locationOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/foodOrderPrice"
+        app:layout_constraintStart_toEndOf="@id/imgOrder"
+        tools:text="//@location"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
