@@ -4,6 +4,7 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                     ,imgMaxSize = R.drawable.shaverma_full_size))
 
             bundle?.putInt("tag",2)
+            Toast.makeText(applicationContext,bundle.toString(),Toast.LENGTH_SHORT).show()
         }
     }
 
