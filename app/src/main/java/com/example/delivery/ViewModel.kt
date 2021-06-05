@@ -13,29 +13,16 @@ import kotlinx.coroutines.launch
 
 class ViewModel(application: Application) : AndroidViewModel(application) {
 
-    val foodRepository: FoodRepository
     val foodOrderRepository: FoodRepository
     var readAllFoods: List<Food>
     var readAllOrder: LiveData<List<FoodOrder>>
 
     init {
-        val foodDao = FoodDatabase.getDatabase(application).foodDao()
         val foodDaoOrder = FoodDatabase.getDatabaseOrder(application).foodDao()
 
-        foodRepository = FoodRepository(foodDao)
         foodOrderRepository = FoodRepository(foodDaoOrder)
         readAllOrder = foodOrderRepository.readAllOrder
         readAllFoods = getList()
-    }
-    fun addAllFoods(foods: List<Food>){
-        viewModelScope.launch(Dispatchers.IO) {
-            foodRepository.addAllFoods(foods)
-        }
-    }
-    fun addFood(food: Food){
-        viewModelScope.launch(Dispatchers.IO) {
-            foodRepository.addFood(food)
-        }
     }
     fun addOrder(order: FoodOrder){
         viewModelScope.launch(Dispatchers.IO) {

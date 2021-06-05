@@ -10,20 +10,6 @@ import com.example.delivery.model.FoodOrder
 @Dao
 interface FoodDao {
 
-    @Query("SELECT * FROM foodTable")
-    fun readAllFoods(): LiveData<List<Food>>
-
-
-    @Query("SELECT * FROM foodTable WHERE id = :id")
-    fun readFood( id: Int ): LiveData<Food>
-
-
-    @Insert
-    fun addAllFoods( foods: List<Food> )
-
-    @Insert
-    fun addFood( foods: Food )
-
     @Insert
     fun addOrder(order: FoodOrder)
 
