@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.delivery.model.Food
+import com.example.delivery.model.FoodOrder
 
 @Dao
 interface FoodDao {
@@ -22,5 +23,11 @@ interface FoodDao {
 
     @Insert
     fun addFood( foods: Food )
+
+    @Insert
+    fun addOrder(order: FoodOrder)
+
+    @Query("SELECT * FROM foodOrderTable ORDER BY id DESC")
+    fun readAllOrder(): LiveData<List<FoodOrder>>
 
 }

@@ -4,37 +4,44 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list_itemHome">
+    android:id="@+id/list_itemHome"
+    android:padding="10dp">
     <ImageView
-    android:id="@+id/imgCart"
-    android:layout_height="200dp"
-    android:layout_width="match_parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/foodCartName"
-    tools:src="@drawable/shaverma"/>
+        android:id="@+id/imgCart"
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/foodCartName"
+        tools:src="@drawable/shaverma"
+        />
+
     <TextView
         android:id="@+id/foodCartName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/imgCart"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="foodCartPrice"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="Shaverma"/>
+        tools:text="Shaverma"
+        app:layout_constraintTop_toBottomOf="@id/imgCart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/foodCartPrice"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="15dp"
+        />
+
     <TextView
         android:id="@+id/foodCartPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="foodCartName"
-        app:layout_constraintBottom_toBottomOf="parent"
         tools:text="15000 UZS"
         android:textSize="17sp"
         android:textColor="@color/priceColor"
-        app:layout_constraintTop_toBottomOf="@id/imgCart"/>
+        app:layout_constraintTop_toBottomOf="@id/imgCart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/foodCartName"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
