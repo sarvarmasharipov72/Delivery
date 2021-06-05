@@ -13,7 +13,7 @@ import com.example.delivery.R
 import com.example.delivery.model.Food
 import com.example.delivery.ui.home.HomeFragmentDirections
 
-class FoodRecyclerAdapter(var list: List<Food>): RecyclerView.Adapter<FoodRecyclerAdapter.FoodViewHolder>() {
+class KafeRecyclerAdapter(var list: List<Food>): RecyclerView.Adapter<KafeRecyclerAdapter.FoodViewHolder>() {
     class FoodViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val imgCart = view.findViewById<ImageView>(R.id.imgCart)
         val foodCartName = view.findViewById<TextView>(R.id.foodCartName)
@@ -36,11 +36,7 @@ class FoodRecyclerAdapter(var list: List<Food>): RecyclerView.Adapter<FoodRecycl
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.bind(list[position])
-        holder.container.setOnClickListener {
-            val action = HomeFragmentDirections.actionNavHomeToFragmentOrder(list[position])
-            holder.itemView.findNavController().navigate(action)
 
-        }
     }
 
     override fun getItemCount(): Int = list.size

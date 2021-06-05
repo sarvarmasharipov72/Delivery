@@ -1,9 +1,12 @@
 package com.example.delivery
 
+import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -39,21 +42,12 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
+                R.id.nav_home, R.id.zakazFragment, R.id.kafe), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        if(bundle == null){
-            var foodViewModel = ViewModelProvider(this).get(ViewModel::class.java)
-            foodViewModel.addFood(Food(name = "Shaverma"
-                    ,price = 15000
-                    , imgMinSize = R.drawable.shaverma
-                    ,imgMaxSize = R.drawable.shaverma_full_size))
-
-            bundle?.putInt("tag",2)
-            Toast.makeText(applicationContext,bundle.toString(),Toast.LENGTH_SHORT).show()
-        }
     }
+
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -61,6 +55,13 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if( R.id.action_settings == item.itemId )
+        startActivity(Intent(applicationContext,MainActivity2::class.java))
+        return super.onOptionsItemSelected(item)
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)

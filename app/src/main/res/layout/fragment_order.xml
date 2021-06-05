@@ -27,6 +27,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageOrder"
             tools:text="Shaverma" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hintLocation"
+            app:layout_constraintTop_toBottomOf="@id/nameOrder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textColor="@color/red"
+            android:visibility="gone"/>
 
         <EditText
             android:id="@+id/location"
@@ -41,7 +51,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/edit_text_border"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nameOrder"
+            app:layout_constraintTop_toBottomOf="@id/textView"
             android:paddingStart="10dp"/>
 
         <TextView

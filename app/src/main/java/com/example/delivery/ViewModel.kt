@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.example.delivery.database.FoodDatabase
 import com.example.delivery.model.Food
 import com.example.delivery.model.FoodOrder
+import com.example.delivery.model.getList
 import com.example.delivery.repository.FoodRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +15,7 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
 
     val foodRepository: FoodRepository
     val foodOrderRepository: FoodRepository
-    var readAllFoods: LiveData<List<Food>>
+    var readAllFoods: List<Food>
     var readAllOrder: LiveData<List<FoodOrder>>
 
     init {
@@ -24,7 +25,7 @@ class ViewModel(application: Application) : AndroidViewModel(application) {
         foodRepository = FoodRepository(foodDao)
         foodOrderRepository = FoodRepository(foodDaoOrder)
         readAllOrder = foodOrderRepository.readAllOrder
-        readAllFoods = foodRepository.readAllFoods
+        readAllFoods = getList()
     }
     fun addAllFoods(foods: List<Food>){
         viewModelScope.launch(Dispatchers.IO) {

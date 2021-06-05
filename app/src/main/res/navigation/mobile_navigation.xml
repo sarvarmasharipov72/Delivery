@@ -15,24 +15,27 @@
             app:destination="@id/fragmentOrder" />
     </fragment>
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.delivery.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.delivery.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/fragmentOrder"
         android:name="com.example.delivery.ui.home.FragmentOrder"
-        android:label="fragment_order"
-        tools:layout="@layout/fragment_order" >
+        android:label="Buyurtma"
+        tools:layout="@layout/fragment_order">
         <argument
             android:name="parcelable"
             app:argType="com.example.delivery.model.Food" />
+        <action
+            android:id="@+id/action_fragmentOrder_to_zakazFragment"
+            app:destination="@id/zakazFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/zakazFragment"
+        android:name="com.example.delivery.ui.zakaz.ZakazFragment"
+        android:label="Buyurtmalar"
+        tools:layout="@layout/fragment_zakaz" />
+    <fragment
+        android:id="@+id/kafe"
+        android:name="com.example.delivery.ui.kafe.Kafe"
+        android:label="Kafelar"
+        tools:layout="@layout/fragment_kafe" />
 </navigation>

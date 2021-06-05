@@ -31,11 +31,9 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val recycler = root.findViewById<RecyclerView>(R.id.recyclerHome)
         val foodViewModel = ViewModelProvider(this).get(ViewModel::class.java)
-        val foodAdapter = FoodRecyclerAdapter()
+        val foodAdapter = FoodRecyclerAdapter(foodViewModel.readAllFoods)
         recycler.adapter = foodAdapter
-        foodViewModel.readAllFoods.observe(viewLifecycleOwner, Observer {
-            foodAdapter.setData(it)
-        })
+
         root.findViewById<ConstraintLayout>(R.id.id).apply {
             setOnClickListener {
                 findNavController().navigate(R.id.action_nav_home_to_fragmentOrder)

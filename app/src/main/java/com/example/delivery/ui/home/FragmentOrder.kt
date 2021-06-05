@@ -8,8 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.delivery.R
+import com.example.delivery.ViewModel
+import com.example.delivery.model.FoodOrder
 import java.lang.Integer.parseInt
 
 
@@ -18,7 +22,6 @@ class FragmentOrder : Fragment() {
 
     private lateinit var count: TextView
     private lateinit var foodPrice: TextView
-    private lateinit var orderButton: TextView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,14 +32,30 @@ class FragmentOrder : Fragment() {
         foodPrice = root.findViewById<TextView>(R.id.foodPrice).apply {
             text = foodFragmentArgs.parcelable.price.toString()
         }
+        val viewModel = ViewModelProvider(this).get(ViewModel::class.java)
+        val textView = root.findViewById<TextView>(R.id.textView)
+        textView.visibility = View.GONE
+        val location = root.findViewById<TextView>(R.id.location)
 
+        root.findViewById<Button>(R.id.orderButton).apply {
+            setOnClickListener {
 
-        orderButton = root.findViewById(R.id.orderButton)
+                if (!location.text.isEmpty()) {
+                    viewModel.addOrder(FoodOrder(
+                            name = foodFragmentArgs.parcelable.name,
+                            price = parseInt(foodPrice.text.toString()),
+                            img = foodFragmentArgs.parcelable.imgMinSize))
+                    findNavController().navigate(R.id.action_fragmentOrder_to_zakazFragment)
+                }else{
+                    textView.visibility = View.VISIBLE
+                }
+            }
+        }
         root.findViewById<TextView>(R.id.nameOrder).apply{
             text = foodFragmentArgs.parcelable.name
         }
         root.findViewById<ImageView>(R.id.imageOrder).apply {
-            setImageResource(foodFragmentArgs.parcelable.imgMaxSize)
+            setImageResource(foodFragmentArgs.parcelable.imgMinSize)
         }
 
         root.findViewById<Button>(R.id.add).apply {

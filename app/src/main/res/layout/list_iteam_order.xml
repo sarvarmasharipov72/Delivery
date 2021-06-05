@@ -24,7 +24,7 @@
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/imgOrder"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         />
     <TextView
         android:id="@+id/foodOrderPrice"
@@ -35,14 +35,6 @@
         android:textSize="18sp"
         android:textColor="@color/priceColor"
         tools:text="25000 UZS"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         />
-    <TextView
-        android:id="@+id/locationOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/foodOrderPrice"
-        app:layout_constraintStart_toEndOf="@id/imgOrder"
-        tools:text="//@location"
-        android:layout_marginStart="15dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

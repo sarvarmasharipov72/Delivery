@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="priceColor">#579A3B</color>
     <color name="bachkgroundColor">#FF7F27</color>
+    <color name="red">#FF0000</color>
 </resources>
