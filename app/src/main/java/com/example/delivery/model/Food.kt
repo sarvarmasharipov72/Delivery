@@ -1,13 +1,11 @@
 package com.example.delivery.model
 
-import android.graphics.Bitmap
 import android.os.Parcelable
-import androidx.lifecycle.LiveData
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.delivery.R
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 @Entity(tableName = "foodTable")
@@ -15,7 +13,8 @@ data class Food( @PrimaryKey(autoGenerate = true) val id: Int = 0
                  , val name: String
                  , val price: Int
                  , val imgMinSize: Int) : Parcelable
-fun getList(): List<Food>{
+
+fun getList(): List<Food> {
     return listOf(
             Food(name = "Shaverma", price = 15000, imgMinSize = R.drawable.shaverma),
             Food(name = "Somsa", price = 8000, imgMinSize = R.drawable.somsa),
