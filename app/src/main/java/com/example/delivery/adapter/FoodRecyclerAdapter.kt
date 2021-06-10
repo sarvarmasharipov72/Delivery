@@ -37,6 +37,9 @@ class FoodRecyclerAdapter(var list: List<Food>): RecyclerView.Adapter<FoodRecycl
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.bind(list[position])
         holder.container.setOnClickListener {
+            if(list.size < 7){
+                val action = KafeListDirection.actionNav
+            }
             val action = HomeFragmentDirections.actionNavHomeToFragmentOrder(list[position])
             holder.itemView.findNavController().navigate(action)
 

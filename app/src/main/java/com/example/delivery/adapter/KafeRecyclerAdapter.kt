@@ -36,6 +36,9 @@ class KafeRecyclerAdapter(var list: List<Food>): RecyclerView.Adapter<KafeRecycl
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.bind(list[position])
+        holder.container.setOnClickListener {
+            holder.itemView.findNavController().navigate(R.id.action_kafe_to_kafeList)
+        }
 
     }
 

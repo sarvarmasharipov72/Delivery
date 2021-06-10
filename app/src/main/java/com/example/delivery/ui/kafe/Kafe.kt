@@ -10,6 +10,7 @@ import com.example.delivery.R
 import com.example.delivery.adapter.FoodRecyclerAdapter
 import com.example.delivery.adapter.KafeRecyclerAdapter
 import com.example.delivery.model.Food
+import java.util.*
 
 
 class Kafe : Fragment() {
@@ -27,8 +28,7 @@ class Kafe : Fragment() {
     }
 
     fun getListKafe(): List<Food> {
-        return listOf(
-            Food(name = "Melnitsa", price = 10, imgMinSize = R.drawable.melnitsa),
+        return listOf(Food(name = "Melnitsa", price = 10, imgMinSize = R.drawable.melnitsa),
             Food(name = "Sharshara", price = 7, imgMinSize = R.drawable.sharshara),
             Food(name = "Mir Kafe", price = 7, imgMinSize = R.drawable.mir_kafe),
             Food(name = "Qamish Burger", price = 8, imgMinSize = R.drawable.qamish),

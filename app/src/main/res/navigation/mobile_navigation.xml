@@ -37,5 +37,18 @@
         android:id="@+id/kafe"
         android:name="com.example.delivery.ui.kafe.Kafe"
         android:label="Kafelar"
-        tools:layout="@layout/fragment_kafe" />
+        tools:layout="@layout/fragment_kafe" >
+        <action
+            android:id="@+id/action_kafe_to_kafeList"
+            app:destination="@id/kafeList" />
+    </fragment>
+    <fragment
+        android:id="@+id/kafeList"
+        android:name="com.example.delivery.ui.kafe.KafeList"
+        android:label="Kafelar"
+        tools:layout="@layout/fragment_kafe" >
+        <action
+            android:id="@+id/action_kafeList_to_fragmentOrder"
+            app:destination="@id/fragmentOrder" />
+    </fragment>
 </navigation>
